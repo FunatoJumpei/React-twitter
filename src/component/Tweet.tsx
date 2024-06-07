@@ -1,21 +1,36 @@
 import { useCallback, useState } from "react";
 
-export const Tweet = (props: any) => {
+export interface TweetProps {
+  id: number;
+  icon?: string;
+  displayName: string;
+  accountName: string;
+  content: string;
+  deleteTweet: (id: number) => void;
+}
+
+export const Tweet = ({
+  id,
+  displayName,
+  accountName,
+  content,
+  deleteTweet,
+}: TweetProps) => {
   const [liked, setLike] = useState(false);
   const toggleLike = useCallback(() => setLike((prev) => !prev), [setLike]);
 
   return (
     <div className="tweet">
-      {/* <div className="icon-container">{props.icon}</div> */}
       <div className="body-container">
         <div className="status-display">
-          <span className="display-name">{props.displayName}</span>
-          <span className="account-name">@{props.accountName}</span>
+          <span className="display-name">{displayName}</span>
+          <span className="account-name">@{accountName}</span>
         </div>
-        <div className="content">{props.content}</div>
+        <div className="content">{content}</div>
         <div className="status-icon">
           <span onClick={toggleLike}>{liked ? "👍" : "▢"}</span>
         </div>
+        <button onClick={() => deleteTweet(id)}>削除</button>
       </div>
     </div>
   );

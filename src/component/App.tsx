@@ -11,10 +11,16 @@ function App() {
     [setTweets]
   );
 
+  const deleteTweet = (id: number) => {
+    setTweets((prevTweets: any) =>
+      prevTweets.filter((tweets: any) => tweets.id !== id)
+    );
+  };
+
   return (
     <>
       <TweetInput addTweet={addTweet} />
-      <Timeline tweets={tweets} />
+      <Timeline tweets={tweets} deleteTweet={deleteTweet} />
     </>
   );
 }
