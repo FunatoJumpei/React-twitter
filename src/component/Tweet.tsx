@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 
-export const Tweet = (props) => {
+export const Tweet = (props: any) => {
   const [liked, setLike] = useState(false);
   const toggleLike = useCallback(() => setLike((prev) => !prev), [setLike]);
 
@@ -14,7 +14,7 @@ export const Tweet = (props) => {
         </div>
         <div className="content">{props.content}</div>
         <div className="status-icon">
-          <span onClick={toggleLike}>{liked ? "●" : "○"}</span>
+          <span onClick={toggleLike}>{liked ? "👍" : "▢"}</span>
         </div>
       </div>
     </div>
