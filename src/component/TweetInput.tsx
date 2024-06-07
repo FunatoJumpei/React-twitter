@@ -1,7 +1,7 @@
 import { useCallback, useRef } from "react";
 
 export const TweetInput = (props: any) => {
-  const textareaRef = useRef(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const sendTweet = useCallback(() => {
     if (textareaRef.current) {
@@ -10,10 +10,10 @@ export const TweetInput = (props: any) => {
         icon: "△",
         displayName: "test3",
         accountName: "test test test",
-        content: textareaRef.current,
+        content: textareaRef.current.value,
       });
     }
-  }, [textareaRef.current, props.addTweet]);
+  }, [props.addTweet]);
 
   return (
     <div>
