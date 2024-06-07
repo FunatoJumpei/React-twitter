@@ -1,18 +1,19 @@
+import { TimelineProps } from "../type/tweetType";
 import { Tweet } from "./Tweet";
 
-export interface TimelineProps {
-  tweets: Array<{
-    id: number;
-    icon: string;
-    displayName: string;
-    accountName: string;
-    content: string;
-  }>;
-  deleteTweet: (id: number) => void;
-}
+// export interface TimelineProps {
+//   tweets: Array<{
+//     id: number;
+//     icon: string;
+//     displayName: string;
+//     accountName: string;
+//     content: string;
+//   }>;
+//   deleteTweet: (id: number) => void;
+// }
 
-export const Timeline = (props: TimelineProps) => {
-  const tweetList = props.tweets.map((tw: any) => (
+export const Timeline = ({ tweets, deleteTweet }: TimelineProps) => {
+  const tweetList = tweets.map((tw) => (
     <Tweet
       key={tw.id}
       id={tw.id}
@@ -20,7 +21,7 @@ export const Timeline = (props: TimelineProps) => {
       displayName={tw.displayName}
       accountName={tw.accountName}
       content={tw.content}
-      deleteTweet={props.deleteTweet}
+      deleteTweet={deleteTweet}
     />
   ));
   return <div className="timeline">{tweetList}</div>;

@@ -1,6 +1,7 @@
 import { useCallback, useRef, useState } from "react";
+import { TweetInputProps } from "../type/tweetType";
 
-export const TweetInput = (props: any) => {
+export const TweetInput = (props1: TweetInputProps) => {
   const [inputValue, setInputValue] = useState("");
 
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -11,7 +12,7 @@ export const TweetInput = (props: any) => {
 
   const sendTweet = useCallback(() => {
     if (textareaRef.current) {
-      props.addTweet({
+      props1.addTweet({
         id: new Date().getTime(),
         // icon: "△",
         displayName: "テスト名",
@@ -20,7 +21,7 @@ export const TweetInput = (props: any) => {
       });
       setInputValue("");
     }
-  }, [inputValue, props.addTweet]);
+  }, [props1.addTweet]);
 
   return (
     <div>

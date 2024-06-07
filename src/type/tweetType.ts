@@ -5,3 +5,12 @@ export type Tweet = {
   accountName: string;
   content: string;
 };
+
+export interface TimelineProps {
+  tweets: Tweet[];
+  deleteTweet: (id: number) => void;
+}
+
+export interface TweetInputProps {
+  addTweet: (tweet: Tweet) => void;
+}

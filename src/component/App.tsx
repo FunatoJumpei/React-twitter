@@ -2,12 +2,13 @@ import { useCallback, useState } from "react";
 import "../css/App.css";
 import { Timeline } from "./Timeline";
 import { TweetInput } from "./TweetInput";
+import { Tweet } from "../type/tweetType";
 
 function App() {
-  const [tweets, setTweets] = useState<any>([]);
+  const [tweets, setTweets] = useState<Tweet[]>([]);
 
   const addTweet = useCallback(
-    (tweet: any) => setTweets((prev: any) => [tweet, ...prev]),
+    (tweet: Tweet) => setTweets((prev) => [tweet, ...prev]),
     [setTweets]
   );
 
