@@ -21,7 +21,7 @@ export const TweetInput = (props: any) => {
         <textarea className="tweet-textarea" ref={textareaRef}></textarea>
       </div>
       <div>
-        <button onClick={sendTweet} className="send-Tweet">
+        <button onClick={sendTweet} className="send-tweet">
           Tweet
         </button>
       </div>

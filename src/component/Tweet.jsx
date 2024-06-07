@@ -6,7 +6,7 @@ export const Tweet = (props) => {
 
   return (
     <div className="tweet">
-      <div className="icon-container">{props.icon}</div>
+      {/* <div className="icon-container">{props.icon}</div> */}
       <div className="body-container">
         <div className="status-display">
           <span className="display-name">{props.displayName}</span>

@@ -4,22 +4,7 @@ import { Timeline } from "./Timeline";
 import { TweetInput } from "./TweetInput";
 
 function App() {
-  const [tweets, setTweets] = useState([
-    {
-      id: 0,
-      icon: "○",
-      displayName: "テスト名",
-      accountName: "test",
-      content: "test now",
-    },
-    {
-      id: 1,
-      icon: "×",
-      displayName: "テスト名2",
-      accountName: "test test",
-      content: "test now now",
-    },
-  ]);
+  const [tweets, setTweets] = useState<any>([]);
 
   const addTweet = useCallback(
     (tweet: any) => setTweets((prev: any) => [tweet, ...prev]),
